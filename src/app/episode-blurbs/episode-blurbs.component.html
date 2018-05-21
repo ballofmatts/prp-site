@@ -1,0 +1,17 @@
+<div *ngFor="let item of podcastData?.items">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="{{item.itunesImage}}">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <div>
+          <strong>{{item.title}}</strong>  <small>{{item.pubDate | amTimeAgo}}</small>
+          <div [innerHtml]="item.description"></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
