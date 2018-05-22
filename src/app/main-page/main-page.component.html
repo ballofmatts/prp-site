@@ -1,0 +1,40 @@
+<section class="hero is-medium is-danger is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Party Roll
+      </h1>
+      <h2 class="subtitle">
+        Who gave us mics?
+      </h2>
+    </div>
+  </div>
+</section>
+<div class="tabs is-centered is-large">
+  <ul>
+    <li class="is-active"><a>Episodes</a></li>
+    <li><a>Seasons</a></li>
+    <li><a>Support</a></li>
+  </ul>
+</div>
+<app-episode-blurbs></app-episode-blurbs>
+<footer class="footer">
+  <div class="container">
+    <div class="content">
+      <div class="columns is-mobile">
+        <div class="column has-text-right">
+          <p>
+            <strong>© {{today | date:'yyyy'}} Party Roll</strong> by
+          </p>
+        </div>
+        <div class="column">
+          <div style="position:relative">
+            <p>
+              <span><app-signiture></app-signiture></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

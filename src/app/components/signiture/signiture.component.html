@@ -1,0 +1,15 @@
+<div #bars [class.is-hidden]="showName" class="bars" (mouseenter)="toggleName(true)" (mouseleave)="toggleName(false)">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<div #name [class.is-hidden]="!showName" class="has-text-weight-bold name" (mouseenter)="toggleName(true)" (mouseleave)="toggleName(false)">
+  Matt
+</div>
