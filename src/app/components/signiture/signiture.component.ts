@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-signiture',
+  selector: 'prp-signiture',
   templateUrl: './signiture.component.html',
   styleUrls: ['./signiture.component.scss']
 })

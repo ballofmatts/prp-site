@@ -6,18 +6,18 @@ import {AppComponent} from './app.component';
 import {EpisodeBlurbsComponent} from './episode-blurbs/episode-blurbs.component';
 import {MomentModule} from 'ngx-moment';
 import {MainPageComponent} from './main-page/main-page.component';
-import {SignitureComponent} from './components/signiture/signiture.component';
+import {ComponentsModule} from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     EpisodeBlurbsComponent,
-    MainPageComponent,
-    SignitureComponent
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     ServicesModule,
+    ComponentsModule,
     MomentModule
   ],
   providers: [],

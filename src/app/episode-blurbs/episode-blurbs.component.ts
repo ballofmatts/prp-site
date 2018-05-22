@@ -5,7 +5,7 @@ import {Parser} from 'xml2js';
 import {Podcast} from '../models/podcast';
 
 @Component({
-  selector: 'app-episode-blurbs',
+  selector: 'prp-episode-blurbs',
   templateUrl: './episode-blurbs.component.html',
   styleUrls: ['./episode-blurbs.component.css']
 })

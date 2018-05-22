@@ -1,4 +1,4 @@
-<section class="hero is-medium is-danger is-bold">
+<section class="hero is-medium is-warning is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -10,14 +10,12 @@
     </div>
   </div>
 </section>
-<div class="tabs is-centered is-large">
-  <ul>
-    <li class="is-active"><a>Episodes</a></li>
-    <li><a>Seasons</a></li>
-    <li><a>Support</a></li>
-  </ul>
-</div>
-<app-episode-blurbs></app-episode-blurbs>
+<tabs>
+  <tab [title]="'Episodes'"><prp-episode-blurbs></prp-episode-blurbs></tab>
+  <tab [title]="'Seasons'"></tab>
+  <tab [title]="'Support'"></tab>
+  <tab [title]="'About'"></tab>
+</tabs>
 <footer class="footer">
   <div class="container">
     <div class="content">
@@ -30,7 +28,7 @@
         <div class="column">
           <div style="position:relative">
             <p>
-              <span><app-signiture></app-signiture></span>
+              <span><prp-signiture></prp-signiture></span>
             </p>
           </div>
         </div>
