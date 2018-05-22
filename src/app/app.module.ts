@@ -7,6 +7,7 @@ import {EpisodeBlurbsComponent} from './episode-blurbs/episode-blurbs.component'
 import {MomentModule} from 'ngx-moment';
 import {MainPageComponent} from './main-page/main-page.component';
 import {ComponentsModule} from './components/components.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ComponentsModule} from './components/components.module';
     BrowserModule,
     ServicesModule,
     ComponentsModule,
-    MomentModule
+    MomentModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
