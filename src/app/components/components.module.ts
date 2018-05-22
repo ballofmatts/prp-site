@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {SignitureComponent} from './signiture/signiture.component';
+import {SignatureComponent} from './signature/signature.component';
 import {TabsComponent} from './tabs/tabs.component';
 import {TabComponent} from './tabs/tab.component';
 
@@ -11,13 +11,13 @@ import {TabComponent} from './tabs/tab.component';
     HttpClientModule
   ],
   declarations: [
-    SignitureComponent,
+    SignatureComponent,
     TabsComponent,
     TabComponent
   ],
   providers: [],
   exports: [
-    SignitureComponent,
+    SignatureComponent,
     TabsComponent,
     TabComponent
   ]

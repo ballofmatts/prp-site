@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'prp-signiture',
-  templateUrl: './signiture.component.html',
-  styleUrls: ['./signiture.component.scss']
+  selector: 'prp-signature',
+  templateUrl: './signature.component.html',
+  styleUrls: ['./signature.component.scss']
 })
-export class SignitureComponent implements OnInit {
+export class SignatureComponent implements OnInit {
   showName = false;
 
   constructor() {
