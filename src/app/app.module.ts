@@ -8,6 +8,7 @@ import {MomentModule} from 'ngx-moment';
 import {MainPageComponent} from './main-page/main-page.component';
 import {ComponentsModule} from './components/components.module';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ServicesModule,
     ComponentsModule,
     MomentModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
