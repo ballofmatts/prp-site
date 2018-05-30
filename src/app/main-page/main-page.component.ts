@@ -7,7 +7,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   today: Date = new Date();
-  tabbs = ['test', 'test2', 'test4'];
 
   constructor() {
   }
