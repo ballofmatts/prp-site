@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {faRss} from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'prp-main-page',
@@ -7,6 +9,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
   today: Date = new Date();
+
+  // media icons
+  faRss = faRss;
+  faTwitter = faTwitter;
+  faFacebook = faFacebook;
+  faYoutube = faYoutube;
 
   constructor() {
   }

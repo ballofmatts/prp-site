@@ -7,12 +7,38 @@
       <h2 class="subtitle">
         Who gave us mics?
       </h2>
+      <h3>
+        <span class="icon" title="RSS feed" aria-label="Subscribe to the rss feed">
+          <a href="http://partyroll.libsyn.com/rss">
+            <fa-icon [icon]="faRss"></fa-icon>
+          </a>
+        </span>
+        <span class="icon" title="Twitter" aria-label="Follow us on Twitter">
+          <a href="https://twitter.com/Party_Roll">
+            <fa-icon [icon]="faTwitter"></fa-icon>
+          </a>
+        </span>
+        <span class="icon" title="Facebook" aria-label="Like us on Facebook">
+          <a href="https://www.facebook.com/PartyRollPodcast/">
+            <fa-icon [icon]="faFacebook"></fa-icon>
+          </a>
+        </span>
+        <span class="icon" title="Teener Time" aria-label="Subscribe to our YouTube show">
+          <a href="https://www.youtube.com/channel/UCk4oPeLpTjDvI-gi38GITSA">
+            <fa-icon [icon]="faYoutube"></fa-icon>
+          </a>
+        </span>
+      </h3>
     </div>
   </div>
 </section>
 <tabs>
-  <tab [title]="'Episodes'"><prp-episode-blurbs></prp-episode-blurbs></tab>
-  <tab [title]="'Seasons'"><prp-seasons></prp-seasons></tab>
+  <tab [title]="'Episodes'">
+    <prp-episode-blurbs></prp-episode-blurbs>
+  </tab>
+  <tab [title]="'Seasons'">
+    <prp-seasons></prp-seasons>
+  </tab>
   <tab [title]="'Support'"></tab>
   <tab [title]="'About'"></tab>
 </tabs>
