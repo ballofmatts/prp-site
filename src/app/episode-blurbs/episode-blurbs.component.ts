@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {PodcastRssService} from '../services/podcast-rss.service';
-import {PodcastMap} from '../models/podcast.map';
 import {Parser} from 'xml2js';
-import {Podcast} from '../models/podcast';
 import {PaginationInstance} from 'ngx-pagination';
+import {Podcast, PodcastMap} from '@models/';
+import {PodcastRssService} from '@services/';
 
 const EPISODES_PER_PAGE = 10;
 

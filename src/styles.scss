@@ -1,3 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~bulma/bulma';
+
+@font-face {
+  font-family: 'futura';
+  src: url('assets/futura_book_font-webfont.eot');
+  src: url('assets/futura_book_font-webfont.eot?#iefix') format('embedded-opentype'),
+  url('assets/futura_book_font-webfont.woff2') format('woff2'),
+  url('assets/futura_book_font-webfont.woff') format('woff'),
+  url('assets/futura_book_font-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
