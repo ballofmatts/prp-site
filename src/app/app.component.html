@@ -1,3 +1,71 @@
-
-<prp-main-page></prp-main-page>
-
+<section class="hero is-medium is-warning is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title futura">
+        PARTY ROLL
+      </h1>
+      <h2 class="subtitle">
+        Who gave us mics?
+      </h2>
+      <h3>
+        <span class="icon" title="RSS feed" aria-label="Subscribe to the rss feed">
+          <a href="http://partyroll.libsyn.com/rss">
+            <fa-icon [icon]="faRss"></fa-icon>
+          </a>
+        </span>
+        <span class="icon" title="Twitter" aria-label="Follow us on Twitter">
+          <a href="https://twitter.com/Party_Roll">
+            <fa-icon [icon]="faTwitter"></fa-icon>
+          </a>
+        </span>
+        <span class="icon" title="Facebook" aria-label="Like us on Facebook">
+          <a href="https://www.facebook.com/PartyRollPodcast/">
+            <fa-icon [icon]="faFacebook"></fa-icon>
+          </a>
+        </span>
+        <span class="icon" title="Teener Time" aria-label="Subscribe to our YouTube show">
+          <a href="https://www.youtube.com/channel/UCk4oPeLpTjDvI-gi38GITSA">
+            <fa-icon [icon]="faYoutube"></fa-icon>
+          </a>
+        </span>
+      </h3>
+    </div>
+  </div>
+</section>
+<nav class="tabs is-centered is-large">
+  <ul>
+    <li routerLinkActive="is-active">
+      <a [routerLink]="['/episodes']">Episodes</a>
+    </li>
+    <li routerLinkActive="is-active">
+      <a [routerLink]="['/seasons']">Seasons</a>
+    </li>
+    <li routerLinkActive="is-active">
+      <a [routerLink]="['/support']">Support</a>
+    </li>
+    <li routerLinkActive="is-active">
+      <a [routerLink]="['/about']">About</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+<footer class="footer">
+  <div class="container">
+    <div class="content">
+      <div class="columns is-mobile">
+        <div class="column has-text-right">
+          <p>
+            <strong>© {{today | date:'yyyy'}} Party Roll</strong> by
+          </p>
+        </div>
+        <div class="column">
+          <div style="position:relative">
+            <p>
+              <span><prp-signature></prp-signature></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

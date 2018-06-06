@@ -14,6 +14,7 @@ const EPISODES_PER_PAGE = 10;
 export class EpisodeBlurbsComponent implements OnInit {
   podcastData: Podcast;
   parser = new Parser;
+  showFilter = '';
 
   config: PaginationInstance = {
     id: 'episodePages',

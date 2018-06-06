@@ -1,23 +1,28 @@
+<div class="columns">
+  <div class="column is-10 is-offset-1 lh-35">
+    Show me:
+    <div class="select is-rounded">
+      <select [(ngModel)]="showFilter">
+        <option value="">All Shows</option>
+        <option value="Party Roll">Party Roll</option>
+        <option value="Savage Roll">Savage Roll</option>
+      </select>
+    </div>
+  </div>
+</div>
 <div class="columns"
-     *ngFor="let item of podcastData?.items | paginate: config">
+     *ngFor="let item of podcastData?.items | filterBy: ['showType']: showFilter | paginate: config">
   <div class="column is-10 is-offset-1">
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <img src="{{item.itunesImage}}">
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <div>
-            <strong>{{item.title}}</strong>&nbsp;
-            <small>{{item.pubDate | amTimeAgo}}</small>
-            <!--{{item.showType}} - S{{item.season}}-->
-            <div [innerHtml]="item.description"></div>
-          </div>
+    <div class="box">
+      <div class="content">
+        <div>
+          <strong><a href="{{item.link}}" target="_blank" >{{item.title}}</a></strong>&nbsp;
+          <small [title]="item.pubDate">{{item.pubDate | amTimeAgo}}</small>
+          <!--{{item.showType}} - S{{item.season}}-->
+          <div [innerHtml]="item.description"></div>
         </div>
       </div>
-    </article>
+    </div>
   </div>
 </div>
 <div class="columns">

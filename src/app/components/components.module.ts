@@ -2,8 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {SignatureComponent} from './signature/signature.component';
-import {TabsComponent} from './tabs/tabs.component';
-import {TabComponent} from './tabs/tab.component';
 
 @NgModule({
   imports: [
@@ -11,15 +9,11 @@ import {TabComponent} from './tabs/tab.component';
     HttpClientModule
   ],
   declarations: [
-    SignatureComponent,
-    TabsComponent,
-    TabComponent
+    SignatureComponent
   ],
   providers: [],
   exports: [
-    SignatureComponent,
-    TabsComponent,
-    TabComponent
+    SignatureComponent
   ]
 })
 export class ComponentsModule {
