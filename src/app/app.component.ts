@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {faRss} from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  today: Date = new Date();
+
+  // media icons
+  faRss = faRss;
+  faTwitter = faTwitter;
+  faFacebook = faFacebook;
+  faYoutube = faYoutube;
 }
