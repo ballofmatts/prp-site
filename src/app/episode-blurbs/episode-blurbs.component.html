@@ -10,22 +10,10 @@
     </div>
   </div>
 </div>
-<div class="columns"
-     *ngFor="let item of podcastData?.items | filterBy: ['showType']: showFilter | paginate: config">
-  <div class="column is-10 is-offset-1">
-    <div class="box">
-      <div class="content">
-        <div>
-          <strong><a href="{{item.link}}" target="_blank" >{{item.title}}</a></strong>&nbsp;
-          <small [title]="item.pubDate">{{item.pubDate | amTimeAgo}}</small>
-          <!--{{item.showType}} - S{{item.season}}-->
-          <div [innerHtml]="item.description"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="columns">
+<ng-container *ngFor="let item of podcastData?.items | filterBy: ['showType']: showFilter | paginate: config">
+  <prp-blurb-box [item]="item"></prp-blurb-box>
+</ng-container>
+<div class="columns p-b-10">
   <div class="column is-10 is-offset-1">
     <pagination-template #p="paginationApi"
                          [id]="config.id"

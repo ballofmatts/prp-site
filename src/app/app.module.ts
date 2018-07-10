@@ -14,6 +14,9 @@ import {AboutComponent} from './about/about.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {NgPipesModule} from 'ngx-pipes';
+import {EpisodePermalinkComponent} from './episode-permalink/episode-permalink.component';
+import {DisqusModule} from 'ngx-disqus';
+import {BlurbBoxComponent} from './episode-blurbs/blurb-box/blurb-box.component';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import {NgPipesModule} from 'ngx-pipes';
     EpisodeBlurbsComponent,
     SeasonsComponent,
     SupportComponent,
-    AboutComponent
+    AboutComponent,
+    EpisodePermalinkComponent,
+    BlurbBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import {NgPipesModule} from 'ngx-pipes';
     MomentModule,
     NgxPaginationModule,
     NgPipesModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DisqusModule.forRoot('partyroll')
   ],
   providers: [],
   bootstrap: [AppComponent]

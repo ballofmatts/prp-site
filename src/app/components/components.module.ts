@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {SignatureComponent} from './signature/signature.component';
+import {PermalinkPipe} from './pipes/permalink.pipe';
 
 @NgModule({
   imports: [
@@ -9,11 +10,15 @@ import {SignatureComponent} from './signature/signature.component';
     HttpClientModule
   ],
   declarations: [
-    SignatureComponent
+    SignatureComponent,
+    PermalinkPipe
   ],
-  providers: [],
+  providers: [
+    PermalinkPipe
+  ],
   exports: [
-    SignatureComponent
+    SignatureComponent,
+    PermalinkPipe
   ]
 })
 export class ComponentsModule {
