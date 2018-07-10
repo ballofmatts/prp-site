@@ -26,7 +26,7 @@ export class PodcastItemMap {
       pubDate: new Date(val.pubDate[0]),
       link: val.link[0],
       itunesImage: val['itunes:image'][0]['$'].href,
-      description: val.description[0],
+      description: val.description[0].replace(/\u00A0/gi, ' '),
       itunesDuration: val['itunes:duration'][0],
       itunesExplicit: (val['itunes:explicit'][0] === 'yes'),
       showType: showType,
