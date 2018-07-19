@@ -17,7 +17,7 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: angular-build
-          command: yarn ng -- build --prod --aot --no-progress
+          command: yarn ng -- build --prod --aot
       - persist_to_workspace:
           root: ~/prp-site
           paths:
@@ -31,7 +31,7 @@ jobs:
             at: ./generated-site
         - run:
             name: Deploy to S3
-            command: aws s3 sync generated-site s3://partyrollpodcast.com/ --delete
+            command: aws s3 sync generated-site/dist s3://partyrollpodcast.com/ --delete
 workflows:
   version: 2
   build-deploy:
