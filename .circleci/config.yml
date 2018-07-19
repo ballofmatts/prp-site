@@ -24,8 +24,8 @@ jobs:
         - image: cibuilds/aws:1.15.44
       working_directory: ~/prp-site
       steps:
-      - attach_workspace:
-                at: ./generated-site
+        - attach_workspace:
+            at: ./generated-site
         - run:
             name: Deploy to S3
             command: aws s3 sync generated-site/dist s3://partyrollpodcast.com/ --delete
