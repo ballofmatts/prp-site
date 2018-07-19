@@ -1,4 +1,5 @@
 # Party Roll Static Site
+[![CircleCI](https://circleci.com/gh/ballofmatts/prp-site/tree/master.svg?style=svg)](https://circleci.com/gh/ballofmatts/prp-site/tree/master)  
 
 Source code for WIP site for a podcast.  
 Uses Bulma CSS, Angular6, and FontAwesome5.

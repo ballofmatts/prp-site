@@ -35,8 +35,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref" : "/new/",
-              "deployUrl": "/new/",
+              "baseHref" : "/",
+              "deployUrl": "/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

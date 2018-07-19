@@ -9,7 +9,7 @@ const EPISODES_PER_PAGE = 10;
 @Component({
   selector: 'prp-episode-blurbs',
   templateUrl: './episode-blurbs.component.html',
-  styleUrls: ['./episode-blurbs.component.css']
+  styleUrls: ['./episode-blurbs.component.scss']
 })
 export class EpisodeBlurbsComponent implements OnInit {
   podcastData: Podcast;

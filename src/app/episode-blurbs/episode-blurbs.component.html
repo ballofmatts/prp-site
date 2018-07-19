@@ -13,23 +13,28 @@
 <ng-container *ngFor="let item of podcastData?.items | filterBy: ['showType']: showFilter | paginate: config">
   <prp-blurb-box [item]="item"></prp-blurb-box>
 </ng-container>
-<div class="columns p-b-10">
+<div class="columns p-b-10 sticky-bottom">
   <div class="column is-10 is-offset-1">
-    <pagination-template #p="paginationApi"
-                         [id]="config.id"
-                         (pageChange)="config.currentPage = $event">
-      <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous" [class.disabled]="p.isFirstPage()" (click)="p.previous()">Previous</div>
-        <div class="pagination-next" [class.disabled]="p.isLastPage()" (click)="p.next()">Next</div>
-        <ul class="pagination-list">
-          <li *ngFor="let page of p.pages">
-            <a class="pagination-link" [class.is-current]="p.getCurrent() === page.value"
-               (click)="p.setCurrent(page.value)">
-              <span>{{ page.label }}</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </pagination-template>
+    <div class="card">
+      <div class="card-content">
+        <pagination-template #p="paginationApi"
+                             [id]="config.id"
+                             (pageChange)="config.currentPage = $event">
+          <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" [class.disabled]="p.isFirstPage()" (click)="p.previous()">Previous</a>
+            <a class="pagination-next" [class.disabled]="p.isLastPage()" (click)="p.next()">Next</a>
+            <ul class="pagination-list">
+              <li *ngFor="let page of p.pages">
+                <a class="pagination-link" [class.is-current]="p.getCurrent() === page.value"
+                   (click)="p.setCurrent(page.value)">
+                  <span>{{ page.label }}</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </pagination-template>
+      </div>
+    </div>
   </div>
 </div>
+

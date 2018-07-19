@@ -29,8 +29,10 @@
         </div>
       </div>
     </div>
-    <div class="p-t-20">
-      <disqus [identifier]="(podcastItem.title | permalink)"></disqus>
+    <div class="columns p-t-20">
+      <div class="column is-10-mobile is-offset-1-mobile">
+        <disqus [identifier]="(podcastItem.title | permalink)"></disqus>
+      </div>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --progress=false",
+    "start": "ng serve --progress=false --host=0.0.0.0",
     "start:prod": "ng serve --prod",
     "build": "ng build",
     "build:prod": "ng build --prod",
@@ -27,6 +27,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-8",
     "bulma": "^0.7.1",
+    "bulma-extensions": "^2.2.1",
     "core-js": "^2.5.7",
     "ngx-disqus": "^2.3.7",
     "ngx-moment": "^2.0.0",
