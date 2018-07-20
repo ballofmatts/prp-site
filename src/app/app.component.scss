@@ -1,3 +1,14 @@
 .matt {
   font-weight: lighter;
 }
+
+.futura {
+  font-family: 'futura', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 5px;
+}
+
+.flipped {
+  display: inline-block;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
