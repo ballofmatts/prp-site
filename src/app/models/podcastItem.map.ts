@@ -7,6 +7,7 @@ export class PodcastItemMap {
       return null;
     }
 
+    // finding show types
     let showType = null;
     if (val.title[0].includes('Party Roll')) {
       showType = ShowTypes.PARTY_ROLL;
@@ -14,11 +15,14 @@ export class PodcastItemMap {
       showType = ShowTypes.SAVAGE_ROLL;
     }
 
+    // finding season & episode
     let season = 1;
-    const pattern = /Roll - S(\d)/u;
+    let episode = 1;
+    const pattern = /Roll - S(\d)E(\d+)/u;
     const result = pattern.exec(val.title[0]);
     if (result) {
       season = Number.parseInt(result[1], 10);
+      episode = Number.parseInt(result[2], 10);
     }
 
     const item = <PodcastItem>{
@@ -30,9 +34,9 @@ export class PodcastItemMap {
       itunesDuration: val['itunes:duration'][0],
       itunesExplicit: (val['itunes:explicit'][0] === 'yes'),
       showType: showType,
-      season: season
+      season: season,
+      episode: episode
     };
-    // console.log(item);
     return item;
   }
 
@@ -43,6 +47,4 @@ export class PodcastItemMap {
 
     return vals.map((v: any) => PodcastItemMap.fromOne(v));
   }
-
-
 }

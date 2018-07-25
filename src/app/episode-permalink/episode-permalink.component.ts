@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PodcastRssService} from '@services';
-import {Podcast, PodcastItem, PodcastMap} from '@models';
-import {Parser} from 'xml2js';
+import {Podcast, PodcastItem} from '@models';
 import {PermalinkPipe} from '../components/pipes/permalink.pipe';
-import {faCloudDownloadAlt} from '@fortawesome/free-solid-svg-icons';
+import {PodcastInfoService} from '@services/podcast-info.service';
+import {Observable} from 'rxjs';
+
+import {faArrowLeft, faArrowRight, faCloudDownloadAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'prp-episode-permalink',
@@ -12,37 +14,27 @@ import {faCloudDownloadAlt} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./episode-permalink.component.css']
 })
 export class EpisodePermalinkComponent implements OnInit {
-  podcastData: Podcast;
-  parser = new Parser;
-
+  podcastData: Observable<Podcast> = this.podcastSvc.podcastData;
   podcastItem: PodcastItem;
 
   faCloudDownloadAlt = faCloudDownloadAlt;
-
+  faArrowLeft = faArrowLeft;
+  faArrowRight = faArrowRight;
 
   constructor(private route: ActivatedRoute,
               private rssParser: PodcastRssService,
+              private podcastSvc: PodcastInfoService,
               private permalinkPipe: PermalinkPipe) {
   }
 
   ngOnInit() {
-    this.getPodcastInfo();
   }
 
-  getPodcastInfo(): void {
+  getEpisodeInfo(podcastInfo: Podcast): PodcastItem {
     const id = this.route.snapshot.paramMap.get('id');
-
-    // parse rss feed. again.
-    this.rssParser.getRssFeed().subscribe((data) => {
-      this.parser.parseString(data, (err, result) => {
-        this.podcastData = PodcastMap.fromOne(result.rss.channel[0]);
-        this.podcastItem = this.podcastData.items.find(item => {
-          return id === this.permalinkPipe.transform(item.title);
-        });
-        // console.log(this.podcastData);
-      });
-    });
-
+    if (!!podcastInfo) {
+      this.podcastItem = podcastInfo.items.find(item => id === this.permalinkPipe.transform(item.title));
+    }
+    return this.podcastItem;
   }
-
 }

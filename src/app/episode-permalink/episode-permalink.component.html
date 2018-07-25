@@ -1,13 +1,11 @@
-<div class="columns" *ngIf="podcastItem">
+<div class="columns" *ngIf="getEpisodeInfo(podcastData | async)">
   <div class="column is-10 is-offset-1">
-
     <div class="columns p-t-20">
       <div class="column is-6-desktop is-offset-3-desktop is-10-mobile is-offset-1-mobile">
-
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <video controls preload="auto" poster="{{podcastItem.itunesImage}}">
+              <video controls preload="metadata" poster="{{podcastItem.itunesImage}}">
                 <source src="{{podcastItem.link}}" type="audio/mpeg">
                 Your browser does not support the audio element.
               </video>
@@ -23,9 +21,18 @@
                 </a>
               </small>
               <div [innerHtml]="podcastItem.description"></div>
-
             </div>
           </div>
+          <footer class="card-footer">
+            <a class="card-footer-item" title="Previous Episode" routerLink="/episode/{{podcastItem.prevEpisode}}"
+               *ngIf="podcastItem.prevEpisode">
+              <fa-icon [icon]="faArrowLeft"></fa-icon>
+            </a>
+            <a class="card-footer-item" title="Next Episode" routerLink="/episode/{{podcastItem.nextEpisode}}"
+               *ngIf="podcastItem.nextEpisode">
+              <fa-icon [icon]="faArrowRight"></fa-icon>
+            </a>
+          </footer>
         </div>
       </div>
     </div>

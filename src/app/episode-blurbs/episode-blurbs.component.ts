@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Parser} from 'xml2js';
 import {PaginationInstance} from 'ngx-pagination';
-import {Podcast, PodcastMap} from '@models';
-import {PodcastRssService} from '@services';
+import {Podcast} from '@models';
+import {PodcastInfoService, PodcastRssService} from '@services';
+import {Observable} from 'rxjs';
 
 const EPISODES_PER_PAGE = 10;
 
@@ -12,8 +12,7 @@ const EPISODES_PER_PAGE = 10;
   styleUrls: ['./episode-blurbs.component.scss']
 })
 export class EpisodeBlurbsComponent implements OnInit {
-  podcastData: Podcast;
-  parser = new Parser;
+  podcastData: Observable<Podcast> = this.podcastSvc.podcastData;
   showFilter = '';
 
   config: PaginationInstance = {
@@ -22,15 +21,10 @@ export class EpisodeBlurbsComponent implements OnInit {
     currentPage: 1
   };
 
-  constructor(private rssParser: PodcastRssService) {
+  constructor(private rssParser: PodcastRssService,
+              private podcastSvc: PodcastInfoService) {
   }
 
   ngOnInit() {
-    this.rssParser.getRssFeed().subscribe((data) => {
-      this.parser.parseString(data, (err, result) => {
-        this.podcastData = PodcastMap.fromOne(result.rss.channel[0]);
-        // console.log(this.podcastData);
-      });
-    });
   }
 }

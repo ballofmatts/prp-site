@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<ng-container *ngFor="let item of podcastData?.items | filterBy: ['showType']: showFilter | paginate: config">
+<ng-container *ngFor="let item of (podcastData | async)?.items | filterBy: ['showType']: showFilter | paginate: config">
   <prp-blurb-box [item]="item"></prp-blurb-box>
 </ng-container>
 <div class="columns p-b-10 sticky-bottom">

@@ -8,6 +8,9 @@ export class PodcastItem {
   itunesExplicit: boolean;
   showType?: ShowTypes;
   season?: number;
+  episode?: number;
+  nextEpisode?: string;
+  prevEpisode?: string;
 }
 
 export enum ShowTypes {
