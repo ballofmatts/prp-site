@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* prp colors */
+$purple: hsl(236, 18, 54);
+$orange: hsl(9, 43, 71);
+$yellow: hsl(47, 43, 88);
+$green: hsl(98, 20, 89);
+$blue: hsl(240, 25, 65);
+$cyan: hsl(236, 18, 54);
+$red: hsl(8, 43, 70);
+
 @import '~bulma/bulma';
 @import '~bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip';
 
