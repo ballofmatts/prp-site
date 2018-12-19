@@ -14,6 +14,7 @@ $red: hsl(8, 43, 70);
 
 @font-face {
   font-family: 'futura';
+  font-display: fallback;
   src: url('assets/futura_book_font-webfont.eot');
   src: url('assets/futura_book_font-webfont.eot?#iefix') format('embedded-opentype'),
   url('assets/futura_book_font-webfont.woff2') format('woff2'),
