@@ -1,180 +1,35 @@
-<section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Party Roll Seasons
-      </h1>
+<ng-container *ngFor="let category of seasonData">
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{category.categoryName}}
+        </h1>
+      </div>
     </div>
-  </div>
-</section>
-<div class="columns">
-  <div class="column is-10 is-offset-1">
-    <section class="section">
-      <div class="content">
-        <h1 class="title">Season 01: The Great Bugbear Caper</h1>
-        <h2 class="subtitle">Lost Mines of Phandelver</h2>
-        <p class="is-italic">The party rolling kicks off with the starter campaign for the fifth edition of Dungeons and
-          Dragons! Tough battles are fought. Proud wizards are brought to humiliating lows. Defenseless goblins are
-          brutally executed.</p>
-        <div class="column is-two-thirds-desktop">
-          <figure class="image is-2by1">
-            <img src="assets/lost-mines-770x360.jpg">
-          </figure>
-        </div>
-        <div><strong>System:</strong> Dungeons and Dragons 5e</div>
-        <div><strong>Published module:</strong> The Lost Mines of Phandelver (Starter Set)</div>
-        <h3>Cast</h3>
-        <div><strong>Dungeon Master</strong> – Mark</div>
-        <div><strong>Grick</strong> – Matt</div>
-        <div><strong>Seth Roguen</strong> – Cory</div>
-        <div><strong>Tekno Viking</strong> – Dusty</div>
-        <div><strong>Whiz Ard</strong> – Steven</div>
-        <div><strong>Engineer Rory</strong> – Rory</div>
+  </section>
+  <ng-container *ngFor="let season of category.seasons">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <section class="section">
+          <div class="content">
+            <h1 class="title">{{season.title}}</h1>
+            <h2 class="subtitle">{{season.subtitle}}</h2>
+            <p class="is-italic">{{season.tagLine}}</p>
+            <div class="column is-two-thirds-desktop" *ngIf="!!season.image">
+              <figure class="image is-2by1">
+                <img [src]="season.image.url">
+              </figure>
+            </div>
+            <div><strong>System:</strong> {{season.system}}</div>
+            <div><strong>{{season.credit.label}}:</strong> {{season.credit.data}}</div>
+            <h3>Starring</h3>
+            <div *ngFor="let player of season.players">
+              <strong>{{player.character}}</strong> – {{player.name}}
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
-</div>
-<div class="columns">
-  <div class="column is-10 is-offset-1">
-    <section class="section">
-      <div class="content">
-        <h1 class="title">Season 02: Escape to Greatworm Island</h1>
-        <h2 class="subtitle">An Original Mark Campaign</h2>
-        <p class="is-italic">Party with an all new cast as characters, responding to a royal summons from a mysterious
-          island! Marvel at the amount of bear puns the gang can cram into a single season!</p>
-
-        <div><strong>System:</strong> Dungeons and Dragons 5e</div>
-        <div><strong>Campaign Creator:</strong> Mark</div>
-        <h3>Cast</h3>
-        <div><strong>Dungeon Master</strong> – Mark</div>
-        <div><strong>Jedwyn Bogswallow</strong> – Steven</div>
-        <div><strong>Fritz Fynn Fynkle</strong> – Cory</div>
-        <div><strong>Barilla Stromboli</strong> – Dusty</div>
-        <div><strong>CARL SEVEN</strong> – Matt</div>
-        <div><strong>Fumbles O'Shack-Hennessy</strong> – Vanessa</div>
-        <div><strong>Engineer Rory</strong> – Rory</div>
-      </div>
-    </section>
-  </div>
-</div>
-<div class="columns">
-  <div class="column is-10 is-offset-1">
-    <section class="section">
-      <div class="content">
-        <h1 class="title">Season 03: Iron and Sand</h1>
-        <h2 class="subtitle">An Original Cory Campaign</h2>
-        <p class="is-italic">A mysterious froggy merchant brings together a group of misfits to help him find a
-          not-so-forgotten artifact…</p>
-
-        <div><strong>System:</strong> Dungeons and Dragons 5e</div>
-        <div><strong>Campaign Creator:</strong> Cory</div>
-        <h3>Cast</h3>
-        <div><strong>Dungeon Master</strong> – Cory</div>
-        <div><strong>Ludwig “Beardless” Solovik</strong> – Steven</div>
-        <div><strong>Perseverence</strong> – Mark</div>
-        <div><strong>Bobby Snakeman</strong> – Dusty</div>
-        <div><strong>Hudge the Dwarf</strong> – Matt</div>
-        <div><strong>Prince Dandy Purplesash</strong> – Vanessa</div>
-        <div><strong>G
-          <fa-icon [icon]="faBeer"></fa-icon>
-          ndry</strong> – Jose
-        </div>
-        <div><strong>Engineer Rory</strong> – Rory</div>
-      </div>
-    </section>
-  </div>
-</div>
-<div class="columns">
-  <div class="column is-10 is-offset-1">
-    <section class="section">
-      <div class="content">
-        <h1 class="title">Season 04: Eye of the Storm</h1>
-        <h2 class="subtitle">An Original Steven Campaign</h2>
-        <p class="is-italic">A kingdom trapped by an ever churning storm, a king shamed by his past, a child chosen
-          against his will, a mysterious man who knows too much, a party of misfits that will inadvertently kill enough
-          innocent people to make a dictator blush.</p>
-        <div class="column is-two-thirds-desktop">
-          <figure class="image is-2by1">
-            <img src="assets/s4header.jpg">
-          </figure>
-        </div>
-
-        <div><strong>System:</strong> Dungeons and Dragons 5e</div>
-        <div><strong>Campaign Creator:</strong> Steven</div>
-        <h3>Cast</h3>
-        <div><strong>Dungeon Master</strong> – Steven</div>
-        <div><strong>Otto Von Ornstein</strong> – Cory</div>
-        <div><strong>Sarn</strong> – Mark</div>
-        <div><s><strong>Krimbim the Ejaculator</strong> – Dusty</s><i class="p-l-5">Kind of here!</i></div>
-        <div><strong>Sledge (Sledric) "the Entertainer" Hammerdick</strong> – Matt</div>
-        <div><strong>
-          <small>meeb</small>
-        </strong> – Vanessa
-        </div>
-        <div><strong>Dunab Hilgrute</strong> – Jose</div>
-        <div><strong>Engineer Rory</strong> – Rory</div>
-      </div>
-    </section>
-  </div>
-</div>
-
-<section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Savage Roll Seasons
-      </h1>
     </div>
-  </div>
-</section>
-<div class="columns">
-  <div class="column is-10 is-offset-1">
-    <section class="section">
-      <div class="content">
-        <h1 class="title">Season 01: Daddy Fucker Supreme 3000 AKA the Matt Damon Express</h1>
-        <h2 class="subtitle">An Original Steven Campaign</h2>
-        <p class="is-italic">A hearty crew of space-faring misfits comes across a ship that has... got some
-          issues...</p>
-
-        <div><strong>System:</strong> Savage Worlds</div>
-        <div><strong>Campaign Creator:</strong> Steven</div>
-        <h3>Cast</h3>
-        <div><strong>Game Master</strong> – Steven</div>
-        <div><strong>Yuri Tereshkova</strong> – Cory</div>
-        <div><strong>Johnny "The Swinger"</strong> – Dusty</div>
-        <div><strong>Dave Ryder</strong> – Matt</div>
-        <div><strong>Sam Bingeater</strong> – Vanessa</div>
-        <div><strong>Engineer Sexton Hardcastle</strong> – Rory</div>
-      </div>
-    </section>
-  </div>
-</div>
-<div class="columns">
-  <div class="column is-10 is-offset-1">
-    <section class="section">
-      <div class="content">
-        <h1 class="title">Season 02: Shadows on the Tree Line</h1>
-        <h2 class="subtitle">An Original Steven Campaign</h2>
-        <p class="is-italic">A strange force has descended on this quiet Oregon town of Overpine. Children are missing
-          and the feds have been called in. Will this party of misfits keep their sanity as they try to track down
-          what's going on?</p>
-        <div class="column is-two-thirds-desktop">
-          <figure class="image is-2by1">
-            <img src="assets/savageS2.jpg">
-          </figure>
-        </div>
-
-        <div><strong>System:</strong> Savage Worlds</div>
-        <div><strong>Campaign Creator:</strong> Steven</div>
-        <h3>Cast</h3>
-        <div><strong>Game Master</strong> – Steven</div>
-        <div><strong>Scooter McGuffin</strong> – Cory</div>
-        <div><strong>Dep. Kenneth Holloway</strong> – Mark</div>
-        <div><strong>Agent Bob Johnson</strong> – Matt</div>
-        <div><strong>Mable Agnes</strong> – Vanessa</div>
-        <div><strong>Eric Deon</strong> – Rory</div>
-        <div><strong>Kevin Kirkman</strong> – Jose</div>
-      </div>
-    </section>
-  </div>
-</div>
+  </ng-container>
+</ng-container>
