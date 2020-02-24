@@ -1,4 +1,4 @@
-import {PodcastItem, ShowTypes} from './podcastItem';
+import { PodcastItem, ShowTypes } from './podcastItem';
 
 export class PodcastItemMap {
 
@@ -13,6 +13,8 @@ export class PodcastItemMap {
       showType = ShowTypes.PARTY_ROLL;
     } else if (val.title[0].includes('Savage Roll')) {
       showType = ShowTypes.SAVAGE_ROLL;
+    } else if (val.title[0].includes('Snack Roll')) {
+      showType = ShowTypes.SNACK_ROLL;
     }
 
     // finding season & episode

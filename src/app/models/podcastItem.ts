@@ -15,5 +15,6 @@ export class PodcastItem {
 
 export enum ShowTypes {
   PARTY_ROLL = 'Party Roll',
-  SAVAGE_ROLL =  'Savage Roll'
+  SAVAGE_ROLL = 'Savage Roll',
+  SNACK_ROLL = 'Snack Roll'
 }
