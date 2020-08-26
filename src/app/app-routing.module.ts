@@ -6,6 +6,7 @@ import {SeasonsComponent} from './seasons/seasons.component';
 import {SupportComponent} from './support/support.component';
 import {AboutComponent} from './about/about.component';
 import {EpisodePermalinkComponent} from './episode-permalink/episode-permalink.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
 
 const routes: Routes = [
   <Route>{
@@ -13,11 +14,11 @@ const routes: Routes = [
     redirectTo: 'episodes',
     pathMatch: 'full'
   },
-  <Route> {
+  <Route>{
     path: 'episodes',
     component: EpisodeBlurbsComponent
   },
-  <Route> {
+  <Route>{
     path: 'episode/:id',
     component: EpisodePermalinkComponent
   },
@@ -32,6 +33,10 @@ const routes: Routes = [
   <Route>{
     path: 'about',
     component: AboutComponent
+  },
+  <Route>{
+    path: 'contact',
+    component: ContactUsComponent
   }
 ];
 

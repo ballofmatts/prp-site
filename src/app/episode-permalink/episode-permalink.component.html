@@ -17,18 +17,18 @@
               <small [title]="podcastItem.pubDate">{{podcastItem.pubDate | amTimeAgo}}</small>&nbsp;
               <small title="Download Episode">
                 <a [href]="podcastItem.link" target="_blank">
-                  <fa-icon [icon]="faCloudDownloadAlt"></fa-icon>
+                  <fa-icon [icon]="faCloudDownloadAlt"></fa-icon> Download
                 </a>
               </small>
               <div [innerHtml]="podcastItem.description"></div>
             </div>
           </div>
           <footer class="card-footer">
-            <a class="card-footer-item" title="Previous Episode" routerLink="/episode/{{podcastItem.prevEpisode}}"
+            <a class="card-footer-item" title="Previous Episode" href="/episode/{{podcastItem.prevEpisode}}"
                *ngIf="podcastItem.prevEpisode">
               <fa-icon [icon]="faArrowLeft"></fa-icon>
             </a>
-            <a class="card-footer-item" title="Next Episode" routerLink="/episode/{{podcastItem.nextEpisode}}"
+            <a class="card-footer-item" title="Next Episode" href="/episode/{{podcastItem.nextEpisode}}"
                *ngIf="podcastItem.nextEpisode">
               <fa-icon [icon]="faArrowRight"></fa-icon>
             </a>

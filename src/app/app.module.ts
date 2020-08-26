@@ -17,6 +17,7 @@ import {NgPipesModule} from 'ngx-pipes';
 import {EpisodePermalinkComponent} from './episode-permalink/episode-permalink.component';
 import {DisqusModule} from 'ngx-disqus';
 import {BlurbBoxComponent} from './episode-blurbs/blurb-box/blurb-box.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {BlurbBoxComponent} from './episode-blurbs/blurb-box/blurb-box.component'
     SupportComponent,
     AboutComponent,
     EpisodePermalinkComponent,
-    BlurbBoxComponent
+    BlurbBoxComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

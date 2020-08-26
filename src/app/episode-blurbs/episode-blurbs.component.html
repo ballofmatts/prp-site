@@ -1,17 +1,23 @@
 <div class="columns">
   <div class="column is-10 is-offset-1 lh-35">
     Show me:
-    <div class="select is-rounded">
-      <select [(ngModel)]="showFilter">
+    <div class="select">
+      <select [(ngModel)]="showTypeFilter">
         <option value="">All Shows</option>
         <option value="Party Roll">Party Roll</option>
         <option value="Savage Roll">Savage Roll</option>
         <option value="Snack Roll">Snack Roll</option>
       </select>
     </div>
+    <div class="select">
+      <select [(ngModel)]="sortOrder">
+        <option value="-pubDate">Newest First</option>
+        <option value="pubDate">Oldest First</option>
+      </select>
+    </div>
   </div>
 </div>
-<ng-container *ngFor="let item of (podcastData | async)?.items | filterBy: ['showType']: showFilter | paginate: config">
+<ng-container *ngFor="let item of (podcastData | async)?.items | filterBy: ['showType']: showTypeFilter | orderBy: sortOrder | paginate: config">
   <prp-blurb-box [item]="item"></prp-blurb-box>
 </ng-container>
 <div class="columns p-b-10 sticky-bottom">

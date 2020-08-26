@@ -13,7 +13,8 @@ const EPISODES_PER_PAGE = 10;
 })
 export class EpisodeBlurbsComponent implements OnInit {
   podcastData: Observable<Podcast> = this.podcastSvc.podcastData;
-  showFilter = '';
+  showTypeFilter = '';
+  sortOrder = '-pubDate';
 
   config: PaginationInstance = {
     id: 'episodePages',
