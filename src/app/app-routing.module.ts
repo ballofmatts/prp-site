@@ -11,7 +11,7 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
 const routes: Routes = [
   <Route>{
     path: '',
-    redirectTo: 'episodes',
+    redirectTo: 'about',
     pathMatch: 'full'
   },
   <Route>{
