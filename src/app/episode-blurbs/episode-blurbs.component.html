@@ -1,32 +1,38 @@
 <div class="columns">
-  <div class="column is-10 is-offset-1 lh-35">
-    Show me:
+  <div class="column is-8-desktop is-offset-2-desktop is-12-mobile filters">
+    <span class="pr-1">Show me:</span>
     <div class="select">
-      <select [(ngModel)]="showTypeFilter">
-        <option value="">All Shows</option>
+      <select [(ngModel)]="showTypeFilter" (ngModelChange)="ohShowChange()">
+        <option value="all">All Shows</option>
         <option value="Party Roll">Party Roll</option>
         <option value="Savage Roll">Savage Roll</option>
         <option value="Snack Roll">Snack Roll</option>
       </select>
     </div>
+    <div class="select" *ngIf="availableSeasons.length > 0">
+      <select [(ngModel)]="seasonFilter" (ngModelChange)="onFiltersChanged()">
+        <option value="all">All Seasons</option>
+        <option *ngFor="let season of availableSeasons" [value]="season">Season {{season}}</option>
+      </select>
+    </div>
     <div class="select">
-      <select [(ngModel)]="sortOrder">
+      <select [(ngModel)]="sortOrder" (ngModelChange)="onPageChange(1)">
         <option value="-pubDate">Newest First</option>
         <option value="pubDate">Oldest First</option>
       </select>
     </div>
   </div>
 </div>
-<ng-container *ngFor="let item of (podcastData | async)?.items | filterBy: ['showType']: showTypeFilter | orderBy: sortOrder | paginate: config">
+<ng-container *ngFor="let item of filteredPodcastData | orderBy: sortOrder | paginate: config">
   <prp-blurb-box [item]="item"></prp-blurb-box>
 </ng-container>
-<div class="columns p-b-10 sticky-bottom">
-  <div class="column is-10 is-offset-1">
+<div class="columns pb-3 sticky-bottom">
+  <div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
     <div class="card">
       <div class="card-content">
         <pagination-template #p="paginationApi"
                              [id]="config.id"
-                             (pageChange)="config.currentPage = $event">
+                             (pageChange)="onPageChange($event)">
           <nav class="pagination is-centered" role="navigation" aria-label="pagination">
             <a class="pagination-previous" [class.disabled]="p.isFirstPage()" (click)="p.previous()">Previous</a>
             <a class="pagination-next" [class.disabled]="p.isLastPage()" (click)="p.next()">Next</a>

@@ -1,5 +1,6 @@
 .collapsed {
   max-height: 150px;
+  min-height: 150px;
   overflow: hidden;
   /*-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(0.75, rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
 
