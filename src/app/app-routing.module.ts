@@ -42,7 +42,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {paramsInheritanceStrategy: 'always'}),
+    RouterModule.forRoot(routes, { paramsInheritanceStrategy: 'always', relativeLinkResolution: 'legacy' }),
     CommonModule
   ],
   exports: [RouterModule],
