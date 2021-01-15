@@ -24,7 +24,7 @@ jobs:
             - dist
   deploy:
       docker:
-        - image: cibuilds/aws:1.15.44
+        - image: cibuilds/aws:2.1.18
       working_directory: ~/prp-site
       steps:
         - attach_workspace:
@@ -32,11 +32,17 @@ jobs:
         - run:
             name: Deploy to S3
             command: aws s3 sync generated-site/dist s3://partyrollpodcast.com/ --delete
+        - run:
+            name: Invalidate cache
+            command: aws cloudfront create-invalidation --distribution-id $AWS_DIST_ID --paths "/*"
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: master
       - deploy:
           requires:
             - build
