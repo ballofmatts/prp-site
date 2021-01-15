@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {faRocket, faRss} from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import {version} from '../../package.json';
 
 @Component({
   selector: 'prp-root',
@@ -9,6 +10,7 @@ import {faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-ico
 })
 export class AppComponent implements OnInit {
   today: Date = new Date();
+  public version: string = version;
 
   // media icons
   faRss = faRss;
