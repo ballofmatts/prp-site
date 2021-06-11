@@ -1,6 +1,6 @@
 {
   "name": "prp-website",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --progress=false --host=0.0.0.0 --disableHostCheck",
@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^12.0.4",
     "@angular/platform-browser-dynamic": "^12.0.4",
     "@angular/router": "^12.0.4",
-    "@fortawesome/angular-fontawesome": "0.8.1",
+    "@fortawesome/angular-fontawesome": "0.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
