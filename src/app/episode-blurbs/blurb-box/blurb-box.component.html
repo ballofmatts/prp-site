@@ -1,17 +1,26 @@
 <div class="columns">
   <div class="column is-8-desktop is-offset-2-desktop is-12-mobile">
     <div class="box">
-      <div class="content">
-        <div class="pos-relative">
-          <strong><a routerLink="/episode/{{item.title | permalink}}">{{item.title}}</a></strong>&nbsp;
-          <small [title]="item.pubDate">{{item.pubDate | amTimeAgo}}</small>&nbsp;
-          <!--<small title="Download Episode"><a [href]="item.link" target="_blank"><fa-icon [icon]="faHeadphones"></fa-icon></a></small>-->
-          <!--{{item.showType}} - S{{item.season}}-->
-          <div [innerHtml]="item.description" [class.collapsed]="collapsed"></div>
-          <span class="mask" *ngIf="collapsed"></span>
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-128x128">
+            <img [src]="item.itunesImage">
+          </figure>
         </div>
-        <!--<div *ngIf="collapsed" class="has-text-centered has-text-grey actionable" (click)="collapsed = false"><fa-icon [icon]="faPlusSquare"></fa-icon></div>-->
-      </div>
+        <div class="media-content">
+          <div class="content">
+            <div class="pos-relative">
+              <p>
+                <strong><a routerLink="/episode/{{item.title | permalink}}">{{item.title}}</a></strong>&nbsp;
+                <small [title]="item.pubDate">{{item.pubDate | amTimeAgo}}</small>&nbsp;
+                <br>
+              </p>
+              <div [innerHtml]="item.description" [class.collapsed]="collapsed"></div>
+              <span class="mask" *ngIf="collapsed"></span>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </div>
