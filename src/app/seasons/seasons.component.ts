@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {faBeer} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { faBeer } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'prp-seasons',
@@ -179,6 +179,41 @@ export class SeasonsComponent implements OnInit {
             {
               character: 'Engineer Rory',
               name: 'Rory'
+            }
+          ]
+        },
+        {
+          title: 'Season 5: Holiday in Barovia',
+          subtitle: 'Curse of Strahd',
+          tagLine: 'Dark forces coerce a band of misfits to the doors of a most welcoming home...',
+          image: {
+            url: 'assets/CurseofStrahd_thumb.jpg'
+          },
+          system: 'Dungeons and Dragons 5e',
+          credit: {
+            label: 'Published module',
+            data: 'Curse of Strahd'
+          },
+          players: [
+            {
+              character: 'Dungeon Master',
+              name: 'Mark'
+            },
+            {
+              character: 'Frahd von Darkness Bloodsex',
+              name: 'Dusty'
+            },
+            {
+              character: 'Denis (DEHN-is) von Reinolds',
+              name: 'Cory'
+            },
+            {
+              character: 'Crusperton Sogbiscuit',
+              name: 'Steven'
+            },
+            {
+              character: 'Nigelious Crumbbottom',
+              name: 'Matt'
             }
           ]
         }
