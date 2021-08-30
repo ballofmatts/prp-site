@@ -1,13 +1,17 @@
 <ng-container *ngFor="let category of seasonData">
-  <section class="hero is-info is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          {{category.categoryName}}
-        </h1>
-      </div>
+  <div class="columns">
+    <div class="column is-4-full-hd is-offset-4-full-hd is-6-widescreen is-offset-3-widescreen is-8-desktop is-offset-2-desktop is-12-mobile">
+      <section class="hero is-info is-bold">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              {{category.categoryName}}
+            </h1>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
   <div class="columns" *ngFor="let season of category.seasons">
     <div class="column is-4-full-hd is-offset-4-full-hd is-6-widescreen is-offset-3-widescreen is-8-desktop is-offset-2-desktop is-12-mobile">
       <div class="card">
