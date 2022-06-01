@@ -38,6 +38,11 @@
             </div>
           </div>
         </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" href="{{season.episodeURL}}" *ngIf="season.episodeURL">
+            <fa-icon [icon]="faHeadphones" class="p-r-5"></fa-icon> Listen to {{season.title}} Now
+          </a>
+        </footer>
       </div>
     </div>
   </div>
