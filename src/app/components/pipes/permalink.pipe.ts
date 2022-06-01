@@ -13,6 +13,7 @@ export class PermalinkPipe implements PipeTransform {
       .toLowerCase()
       .trim()
       .replace(/[\s]-[\s]/g, '-') // changing ' - ' to '-'
-      .replace(/[\s]/g, '-');
+      .replace(/[\s]/g, '-')
+      .replace(/[()]/g, '');
   }
 }
