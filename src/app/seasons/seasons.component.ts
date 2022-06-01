@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBeer } from '@fortawesome/free-solid-svg-icons';
+import {faBeer, faHeadphones} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'prp-seasons',
@@ -7,7 +7,7 @@ import { faBeer } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./seasons.component.css']
 })
 export class SeasonsComponent implements OnInit {
-  faBeer = faBeer;
+  faHeadphones = faHeadphones;
   seasonData = [
     {
       categoryName: 'Party Roll Seasons',
@@ -16,6 +16,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 1: The Great Bugbear Caper',
           subtitle: 'Lost Mines of Phandelver',
           tagLine: 'The party rolling kicks off with the starter campaign for the fifth edition of Dungeons and Dragons! Tough battles are fought. Proud wizards are brought to humiliating lows. Defenseless goblins are brutally executed.',
+          episodeURL: '/episodes?show=party-roll&season=1&order=1',
           image: {
             url: 'assets/lost-mines-770x360.jpg'
           },
@@ -55,6 +56,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 2: Escape to Greatworm Island',
           subtitle: 'An Original Mark Campaign',
           tagLine: 'Party with an all new cast as characters, responding to a royal summons from a mysterious island! Marvel at the amount of bear puns the gang can cram into a single season!',
+          episodeURL: '/episodes?show=party-roll&season=2&order=1',
           system: 'Dungeons and Dragons 5e',
           credit: {
             label: 'Campaign Creator',
@@ -95,6 +97,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 3: Iron and Sand',
           subtitle: 'An Original Cory Campaign',
           tagLine: 'A mysterious froggy merchant brings together a group of misfits to help him find a not-so-forgotten artifact…',
+          episodeURL: '/episodes?show=party-roll&season=3&order=1',
           system: 'Dungeons and Dragons 5e',
           credit: {
             label: 'Campaign Creator',
@@ -139,6 +142,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 4: Eye of the Storm',
           subtitle: 'An Original Steven Campaign',
           tagLine: 'A kingdom trapped by an ever churning storm, a king shamed by his past, a child chosen against his will, a mysterious man who knows too much, a party of misfits that will inadvertently kill enough innocent people to make a dictator blush.',
+          episodeURL: '/episodes?show=party-roll&season=4&order=1',
           image: {
             url: 'assets/s4header.jpg'
           },
@@ -186,6 +190,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 5: Holiday in Barovia',
           subtitle: 'Curse of Strahd',
           tagLine: 'Dark forces coerce a band of misfits to the doors of a most welcoming home...',
+          episodeURL: '/episodes?show=party-roll&season=5&order=1',
           image: {
             url: 'assets/CurseofStrahd_thumb.jpg'
           },
@@ -226,6 +231,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 1: Daddy Fucker Supreme 3000 AKA the Matt Damon Express',
           subtitle: 'An Original Steven Campaign',
           tagLine: 'A hearty crew of space-faring misfits comes across a ship that has... got some issues...',
+          episodeURL: '/episodes?show=savage-roll&season=1&order=1',
           system: 'Savage Worlds',
           credit: {
             label: 'Campaign Creator',
@@ -262,6 +268,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 2: Shadows on the Tree Line',
           subtitle: 'An Original Steven Campaign',
           tagLine: 'A strange force has descended on this quiet Oregon town of Overpine. Children are missing and the feds have been called in. Will this party of misfits keep their sanity as they try to track down what\'s going on?',
+          episodeURL: '/episodes?show=savage-roll&season=2&order=1',
           image: {
             url: 'assets/savageS2.jpg'
           },
@@ -310,6 +317,7 @@ export class SeasonsComponent implements OnInit {
           title: 'Season 1: Bear Minimum',
           subtitle: 'An Original Steven Campaign',
           tagLine: 'A party of misfits comes to the rescue of a small town being attacked by a ravenous beast.',
+          episodeURL: '/episodes?show=snack-roll&season=1&order=1',
           system: 'Dungeons and Dragons 5e',
           credit: {
             label: 'Campaign Creator',
