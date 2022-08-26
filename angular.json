@@ -52,7 +52,6 @@
                 }
               ],
               "baseHref": "/",
-              "deployUrl": "/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -113,6 +112,5 @@
         }
       }
     }
-  },
-  "defaultProject": "prp-website"
+  }
 }
