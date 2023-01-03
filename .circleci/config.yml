@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/prp-site
     docker:
-      - image: circleci/node:18-browsers
+      - image: circleci/node:18.12.1
     steps:
       - checkout
       - restore_cache:
