@@ -27,6 +27,7 @@ export class PodcastInfoService {
       });
       if (tempPrev) {
         item.prevEpisode = this.permalinkPipe.transform(tempPrev.title);
+        item.prevEpisodeTitle = tempPrev.title;
       }
       const tempNext = items.find(subItem => {
         return (subItem.showType === item.showType
@@ -35,8 +36,8 @@ export class PodcastInfoService {
       });
       if (tempNext) {
         item.nextEpisode = this.permalinkPipe.transform(tempNext.title);
+        item.nextEpisodeTitle = tempNext.title;
       }
-
     }
   }
 

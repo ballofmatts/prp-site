@@ -10,7 +10,9 @@ export class PodcastItem {
   season?: number;
   episode?: number;
   nextEpisode?: string;
+  nextEpisodeTitle?: string;
   prevEpisode?: string;
+  prevEpisodeTitle?: string;
 }
 
 export enum ShowTypes {

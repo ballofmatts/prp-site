@@ -1,11 +1,11 @@
-<div class="columns" *ngIf="getEpisodeInfo(podcastData | async)">
+<div *ngIf="getEpisodeInfo(podcastData | async)" class="columns">
   <div class="column is-10 is-offset-1">
     <div class="columns p-t-20">
       <div class="column is-6-desktop is-offset-3-desktop is-10-mobile is-offset-1-mobile">
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <video controls preload="metadata" poster="{{podcastItem.itunesImage}}">
+              <video controls poster="{{podcastItem.itunesImage}}" preload="metadata">
                 <source src="{{podcastItem.link}}" type="audio/mpeg">
                 Your browser does not support the audio element.
               </video>
@@ -17,20 +17,23 @@
               <small [title]="podcastItem.pubDate">{{podcastItem.pubDate | amTimeAgo}}</small>&nbsp;
               <small title="Download Episode">
                 <a [href]="podcastItem.link" target="_blank">
-                  <fa-icon [icon]="faCloudDownloadAlt"></fa-icon> Download
+                  <fa-icon [icon]="faCloudDownloadAlt"></fa-icon>
+                  Download
                 </a>
               </small>
               <div [innerHtml]="podcastItem.description"></div>
             </div>
           </div>
           <footer class="card-footer">
-            <a class="card-footer-item" title="Previous Episode" href="/episode/{{podcastItem.prevEpisode}}"
-               *ngIf="podcastItem.prevEpisode">
-              <fa-icon [icon]="faArrowLeft"></fa-icon>
+            <a *ngIf="podcastItem.prevEpisode" class="card-footer-item" href="/episode/{{podcastItem.prevEpisode}}"
+               title="Previous Episode">
+              <fa-icon [icon]="faArrowLeft" class="p-r-5"></fa-icon>
+              {{podcastItem.prevEpisodeTitle}}
             </a>
-            <a class="card-footer-item" title="Next Episode" href="/episode/{{podcastItem.nextEpisode}}"
-               *ngIf="podcastItem.nextEpisode">
-              <fa-icon [icon]="faArrowRight"></fa-icon>
+            <a *ngIf="podcastItem.nextEpisode" class="card-footer-item" href="/episode/{{podcastItem.nextEpisode}}"
+               title="Next Episode">
+              {{podcastItem.nextEpisodeTitle}}
+              <fa-icon [icon]="faArrowRight" class="p-l-5"></fa-icon>
             </a>
           </footer>
         </div>

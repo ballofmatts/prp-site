@@ -1,12 +1,9 @@
 .email {
-&::before {
-   content: 'partyrollpodcast';
- }
-&::after {
-   content: 'gmail.com';
- }
-}
+  &::before {
+    content: 'partyrollpodcast';
+  }
 
-.p-l-5 {
-  padding-left: 5px;
+  &::after {
+    content: 'gmail.com';
+  }
 }

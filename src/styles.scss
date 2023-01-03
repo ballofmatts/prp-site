@@ -1,13 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* prp colors */
-$purple: hsl(236, 18%, 54%);
+$turquoise: hsl(240, 100%, 0%);
+$purple: hsl(263, 62%, 32%);
 $orange: hsl(9, 43%, 71%);
-$yellow: hsl(47, 43%, 88%);
-$green: hsl(98, 20%, 89%);
-$blue: hsl(236, 18%, 54%);
-$cyan: hsl(236, 18%, 54%);
-$red: hsl(8, 43%, 70%);
+$yellow: hsl(58, 36%, 87%);
+$green: hsl(173, 62%, 22%);
+$blue: hsl(263, 62%, 32%);
+$cyan: hsl(263, 62%, 32%);
+$red: hsl(345, 83%, 40%);
+
+// deep red: hsl(345, 83%, 40%);
+// deep purp: hsl(263, 62%, 32%);
+// yellow: hsl(58, 36%, 87%);
+// green: hsl(173, 62%, 22%);
+// dark: hsl(240, 100%, 0%);
+
 
 @import '~bulma/bulma';
 @import '~bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip';
@@ -22,4 +30,12 @@ $red: hsl(8, 43%, 70%);
   url('assets/futura_book_font-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+.p-l-5 {
+  padding-left: 5px;
+}
+
+.p-r-5 {
+  padding-right: 5px;
 }
