@@ -8,27 +8,27 @@
         Who gave us mics?
       </h2>
       <h3 class="social-media-links">
-        <span class="icon tooltip has-tooltip" data-tooltip="RSS feed" aria-label="Subscribe to the rss feed">
+        <span aria-label="Subscribe to the rss feed" class="icon tooltip has-tooltip" data-tooltip="RSS feed">
           <a href="http://partyroll.libsyn.com/rss">
             <fa-icon [icon]="faRss"></fa-icon>
           </a>
         </span>
-        <span class="icon tooltip has-tooltip" data-tooltip="Twitter" aria-label="Follow us on Twitter">
+        <span aria-label="Follow us on Twitter" class="icon tooltip has-tooltip" data-tooltip="Twitter">
           <a href="https://twitter.com/Party_Roll">
             <fa-icon [icon]="faTwitter"></fa-icon>
           </a>
         </span>
-        <span class="icon tooltip has-tooltip" data-tooltip="Facebook" aria-label="Like us on Facebook">
+        <span aria-label="Like us on Facebook" class="icon tooltip has-tooltip" data-tooltip="Facebook">
           <a href="https://www.facebook.com/PartyRollPodcast/">
             <fa-icon [icon]="faFacebook"></fa-icon>
           </a>
         </span>
-        <span class="icon tooltip has-tooltip" data-tooltip="Teener Time" aria-label="Subscribe to our YouTube show">
-          <a href="https://www.youtube.com/channel/UCk4oPeLpTjDvI-gi38GITSA">
+        <span aria-label="Subscribe to our YouTube show" class="icon tooltip has-tooltip" data-tooltip="Youtube">
+          <a href="https://youtube.com/@PartyRollPodcast">
             <fa-icon [icon]="faYoutube"></fa-icon>
           </a>
         </span>
-        <span class="icon tooltip has-tooltip" data-tooltip="Patreon" aria-label="Subscribe to our Patreon">
+        <span aria-label="Subscribe to our Patreon" class="icon tooltip has-tooltip" data-tooltip="Patreon">
           <a href="https://www.patreon.com/partyrollpodcast">
             <fa-icon [icon]="faPatreon"></fa-icon>
           </a>
@@ -49,7 +49,9 @@
       <a [routerLink]="['/episodes']">Episodes</a>
     </li>
     <li routerLinkActive="is-active">
-      <a [routerLink]="['/support']">Be Cute</a>
+      <a [routerLink]="['/support']">Be Cute
+        <fa-icon [icon]="faHeart" class="p-l-5"></fa-icon>
+      </a>
     </li>
     <li routerLinkActive="is-active">
       <a [routerLink]="['/contact']">Social</a>
@@ -61,7 +63,7 @@
   <div class="container">
     <div class="content has-text-centered">
       <p>
-        <strong>© 2014-2022 Party Roll</strong> by
+        <strong>© 2014-2023 Party Roll</strong> by
         <span class="matt has-text-danger">M<fa-icon [icon]="faA" [spin]="true"></fa-icon>tt</span>
         <span class="is-pulled-right has-text-grey-light version">{{appVersion}}</span>
       </p>

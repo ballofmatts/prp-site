@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faRocket, faRss} from '@fortawesome/free-solid-svg-icons';
+import {faHeart, faRocket, faRss} from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faPatreon, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import packageInfo from '../../package.json';
 
@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   faYoutube = faYoutube;
   faPatreon = faPatreon;
   faA = faRocket;
+  faHeart = faHeart;
 
   ngOnInit() {
     console.log('oi m8 pretty cheeky to go rootin around in here');
