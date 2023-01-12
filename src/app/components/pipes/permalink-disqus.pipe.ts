@@ -1,9 +1,9 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'permalink'
+  name: 'permalinkDisqus'
 })
-export class PermalinkPipe implements PipeTransform {
+export class PermalinkDisqusPipe implements PipeTransform {
 
   transform(title: any): any {
     if (title == null) {
@@ -12,7 +12,8 @@ export class PermalinkPipe implements PipeTransform {
     return title
       .toLowerCase()
       .trim()
-      .replace(/\W/g, '-')
-      .replace(/-+/g, '-');
+      .replace(/[\s]-[\s]/g, '-') // changing ' - ' to '-'
+      .replace(/[\s]/g, '-')
+      .replace(/[()]/g, '');
   }
 }
