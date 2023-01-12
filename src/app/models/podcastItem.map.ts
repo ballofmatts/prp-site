@@ -1,4 +1,4 @@
-import { PodcastItem, ShowTypes } from './podcastItem';
+import {PodcastItem, ShowTypes} from './podcastItem';
 
 export class PodcastItemMap {
 
@@ -20,11 +20,11 @@ export class PodcastItemMap {
     // finding season & episode
     let season = 1;
     let episode = 1;
-    const pattern = /Roll - S(\d)E(\d+)/u;
-    const result = pattern.exec(val.title[0]);
-    if (result) {
-      season = Number.parseInt(result[1], 10);
-      episode = Number.parseInt(result[2], 10);
+    if (val['itunes:season'] && parseInt(val['itunes:season'], 10) !== undefined) {
+      season = parseInt(val['itunes:season'], 10) % 10;
+    }
+    if (val['itunes:episode'] && parseInt(val['itunes:episode'], 10) !== undefined) {
+      episode = parseInt(val['itunes:episode'], 10);
     }
 
     const item = <PodcastItem>{

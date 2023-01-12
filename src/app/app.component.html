@@ -46,7 +46,7 @@
       <a [routerLink]="['/seasons']">Seasons</a>
     </li>
     <li routerLinkActive="is-active">
-      <a [routerLink]="['/episodes']">Episodes</a>
+      <a [routerLink]="['/episodes']" [queryParams]="{show: 'all', season: 'all'}">Episodes</a>
     </li>
     <li routerLinkActive="is-active">
       <a [routerLink]="['/support']">Be Cute

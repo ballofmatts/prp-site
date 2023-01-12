@@ -3,27 +3,25 @@
     <span class="pr-1">Show me:</span>
     <div class="select">
       <select [(ngModel)]="showTypeFilter" (ngModelChange)="onShowChange()">
-        <option value="all">All Shows</option>
-        <option value="Party Roll">Party Roll</option>
-        <option value="Savage Roll">Savage Roll</option>
-        <option value="Snack Roll">Snack Roll</option>
+        <option *ngFor="let showFilter of showFilterMap | keyvalue"
+                [value]="showFilter.key">{{showFilter.value}}</option>
       </select>
     </div>
     <div class="select" *ngIf="availableSeasons.length > 0">
-      <select [(ngModel)]="seasonFilter" (ngModelChange)="onFiltersChanged()">
+      <select [(ngModel)]="seasonFilter" (ngModelChange)="onFiltersChanged(true)">
         <option value="all">All Seasons</option>
         <option *ngFor="let season of availableSeasons" [value]="season">Season {{season}}</option>
       </select>
     </div>
     <div class="select">
-      <select [(ngModel)]="sortOrder" (ngModelChange)="onPageChange(1)">
-        <option value="-pubDate">Newest First</option>
-        <option value="pubDate">Oldest First</option>
+      <select [(ngModel)]="sortOrder" (ngModelChange)="onSortChanged()">
+        <option value="-1">Newest First</option>
+        <option value="1">Oldest First</option>
       </select>
     </div>
   </div>
 </div>
-<ng-container *ngFor="let item of filteredPodcastData | orderBy: sortOrder | paginate: config">
+<ng-container *ngFor="let item of filteredEpisodes | orderBy: sortOrderMap[sortOrder] | paginate: config">
   <prp-blurb-box [item]="item"></prp-blurb-box>
 </ng-container>
 <div class="columns pb-3 sticky-bottom">
@@ -32,10 +30,11 @@
       <div class="card-content">
         <pagination-template #p="paginationApi"
                              [id]="config.id"
-                             (pageChange)="onPageChange($event)">
+                             (pageChange)="onPageChange($event)"
+                             (pageBoundsCorrection)="onPageChange($event)">
           <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-            <a class="pagination-previous" [class.disabled]="p.isFirstPage()" (click)="p.previous()">Previous</a>
-            <a class="pagination-next" [class.disabled]="p.isLastPage()" (click)="p.next()">Next</a>
+            <a class="pagination-previous" [class.is-disabled]="p.isFirstPage()" (click)="p.previous()">Previous</a>
+            <a class="pagination-next" [class.is-disabled]="p.isLastPage()" (click)="p.next()">Next</a>
             <ul class="pagination-list">
               <li *ngFor="let page of p.pages">
                 <a class="pagination-link" [class.is-current]="p.getCurrent() === page.value"
