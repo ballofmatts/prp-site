@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {PermalinkPipe} from './pipes/permalink.pipe';
+import {PermalinkDisqusPipe} from './pipes/permalink-disqus.pipe';
 
 @NgModule({
   imports: [
@@ -9,13 +10,16 @@ import {PermalinkPipe} from './pipes/permalink.pipe';
     HttpClientModule
   ],
   declarations: [
-    PermalinkPipe
+    PermalinkPipe,
+    PermalinkDisqusPipe
   ],
   providers: [
-    PermalinkPipe
+    PermalinkPipe,
+    PermalinkDisqusPipe
   ],
   exports: [
-    PermalinkPipe
+    PermalinkPipe,
+    PermalinkDisqusPipe
   ]
 })
 export class ComponentsModule {
