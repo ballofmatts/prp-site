@@ -25,7 +25,6 @@ export class PodcastMap {
         email: val['itunes:owner'][0]['itunes:email'][0],
         name: val['itunes:owner'][0]['itunes:name'][0]
       },
-      itunesSubtitle: val['itunes:subtitle'][0],
       itunesSummary: val['itunes:summary'][0],
       lastBuildDate: new Date(val.lastBuildDate[0]),
       link: val.link[0],
