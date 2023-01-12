@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PaginationInstance} from 'ngx-pagination';
 import {Podcast, PodcastItem} from '@models';
 import {PodcastInfoService} from '@services';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 
 const EPISODES_PER_PAGE = 10;
@@ -21,7 +21,19 @@ export class EpisodeBlurbsComponent implements OnInit {
   sortOrder = '-pubDate';
   availableSeasons = [];
 
-  filteredPodcastData: PodcastItem[] = [];
+  filteredEpisodes: PodcastItem[] = [];
+
+  showFilterMap = {
+    'all': 'All Shows',
+    'party-roll': 'Party Roll',
+    'savage-roll': 'Savage Roll',
+    'snack-roll': 'Snack Roll'
+  };
+
+  sortOrderMap = {
+    '-1': '-pubDate',
+    '1': 'pubDate'
+  };
 
   // pagination config
   config: PaginationInstance = {
@@ -31,8 +43,9 @@ export class EpisodeBlurbsComponent implements OnInit {
   };
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private podcastInfoService: PodcastInfoService,
-    private route: ActivatedRoute,
+    private router: Router,
   ) {
   }
 
@@ -42,64 +55,70 @@ export class EpisodeBlurbsComponent implements OnInit {
         switchMap((podcast: Podcast) => {
           // init the podcast data
           this.podcastData = podcast;
-          return this.route.queryParams;
+          return this.activatedRoute.queryParams;
         })
       )
       .subscribe(params => {
         // then handle any query params
         if (!!params.show) {
-          switch (params.show) {
-            case 'party-roll':
-              this.showTypeFilter = 'Party Roll';
-              break;
-            case 'savage-roll':
-              this.showTypeFilter = 'Savage Roll';
-              break;
-            case 'snack-roll':
-              this.showTypeFilter = 'Snack Roll';
-              break;
-          }
+          this.showTypeFilter = params.show;
         }
         this.onShowChange();
         if (!!params.season && !isNaN(params.season) && this.availableSeasons.includes(parseInt(params.season, 10))) {
           this.seasonFilter = params.season;
         }
         if (!!params.order) {
-          switch (params.order) {
-            case '-1':
-              this.sortOrder = '-pubDate';
-              break;
-            case '1':
-              this.sortOrder = 'pubDate';
-              break;
-          }
+          this.sortOrder = params.order;
+        } else {
+          this.sortOrder = '-1';
         }
-        this.onFiltersChanged();
+        if (!!params.p) {
+          this.config.currentPage = params.p;
+        }
+
+        this.onFiltersChanged(false);
       });
   }
 
   onPageChange(page: number) {
     this.config.currentPage = page;
+    this.updateQueryParams({p: page.toString(10)});
     window.scrollTo(0, 0);
   }
 
-  onFiltersChanged() {
+  onSortChanged() {
+    const queryParams: Params = {};
+    this.onPageChange(1);
+    this.updateQueryParams({order: this.sortOrder, p: '1'});
+  }
+
+  onFiltersChanged(resetPages: boolean = true) {
     if (!!this.podcastData) {
-      let tempPodcastData = this.podcastData.items;
+      const queryParams: Params = {};
+      let tempEpisodes = this.podcastData.items;
       // filter by show
       if (this.showTypeFilter !== 'all') {
-        tempPodcastData = tempPodcastData.filter(item => item.showType === this.showTypeFilter);
+        tempEpisodes = tempEpisodes.filter(item => item.showType === this.showFilterMap[this.showTypeFilter]);
       }
+      queryParams.show = this.showTypeFilter;
 
       // filter by season
       if (this.seasonFilter !== 'all') {
-        tempPodcastData = tempPodcastData.filter(item => item.season.toString(10) === this.seasonFilter);
+        tempEpisodes = tempEpisodes.filter(item => item.season.toString(10) === this.seasonFilter);
       }
+      queryParams.season = this.seasonFilter;
 
       // write the filtered list to main
-      this.filteredPodcastData = tempPodcastData;
-      // set page back to 1
-      this.onPageChange(1);
+      this.filteredEpisodes = tempEpisodes;
+
+      if (resetPages) {
+        queryParams.p = '1';
+        this.onPageChange(1);
+      }
+      this.config.totalItems = this.filteredEpisodes.length;
+
+      // set the new queryparams
+      this.updateQueryParams(queryParams);
     }
   }
 
@@ -108,14 +127,24 @@ export class EpisodeBlurbsComponent implements OnInit {
       // if they picked an individual show, get the available seasons based on actual podcast data
       if (this.showTypeFilter !== 'all') {
         this.availableSeasons = this.podcastData.items
-          .filter(item => item.showType === this.showTypeFilter)
+          .filter(item => item.showType === this.showFilterMap[this.showTypeFilter])
           .map(item => item.season);
         this.availableSeasons = [...new Set(this.availableSeasons)].sort();
       } else { // otherwise, clear em out
         this.availableSeasons = [];
       }
       this.seasonFilter = 'all';
-      this.onFiltersChanged();
+      this.onFiltersChanged(true);
     }
+  }
+
+  updateQueryParams(params: Params) {
+    this.router.navigate(
+      ['.'],
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: params,
+        queryParamsHandling: 'merge',
+      });
   }
 }
