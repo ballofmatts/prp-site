@@ -19,7 +19,7 @@ export class PodcastItemMap {
 
     // finding season & episode
     let season = 1;
-    let episode = 1;
+    let episode = 0;
     if (val['itunes:season'] && parseInt(val['itunes:season'], 10) !== undefined) {
       season = parseInt(val['itunes:season'], 10) % 10;
     }
