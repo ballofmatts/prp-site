@@ -1,6 +1,7 @@
 import {ServicesModule} from '@services';
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
+import * as Sentry from "@sentry/angular-ivy";
 
 import {AppComponent} from './app.component';
 import {EpisodeBlurbsComponent} from './episode-blurbs/episode-blurbs.component';
@@ -18,6 +19,7 @@ import {EpisodePermalinkComponent} from './episode-permalink/episode-permalink.c
 import {DisqusModule} from 'ngx-disqus';
 import {BlurbBoxComponent} from './episode-blurbs/blurb-box/blurb-box.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
+import {Router} from '@angular/router';
 
 
 @NgModule({
@@ -43,7 +45,21 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
     FontAwesomeModule,
     DisqusModule.forRoot('partyroll')
   ],
-  providers: [],
+  providers: [{
+    provide: ErrorHandler,
+    useValue: Sentry.createErrorHandler({
+      showDialog: false,
+    }),
+  }, {
+    provide: Sentry.TraceService,
+    deps: [Router],
+  },
+  {
+    provide: APP_INITIALIZER,
+    useFactory: () => () => {},
+    deps: [Sentry.TraceService],
+    multi: true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule {
