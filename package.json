@@ -1,6 +1,6 @@
 {
   "name": "prp-website",
-  "version": "1.11.3",
+  "version": "1.11.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=0.0.0.0 --disable-host-check --poll=2000",
