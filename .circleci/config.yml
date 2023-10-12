@@ -18,9 +18,6 @@ jobs:
       - run:
           name: angular-build
           command: yarn ng build --configuration production --aot --no-progress
-      - run:
-          name: sentry sourcemaps
-          command: yarn sentry:sourcemaps
       - persist_to_workspace:
           root: ~/prp-site
           paths:
