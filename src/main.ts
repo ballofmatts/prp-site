@@ -16,9 +16,9 @@ Sentry.init({
     new Sentry.Replay(),
   ],
   // Performance Monitoring
-  tracesSampleRate: 0.2,
+  tracesSampleRate: 0.02,
   // Session Replay
-  replaysSessionSampleRate: 0.10,
+  replaysSessionSampleRate: 0.0,
   replaysOnErrorSampleRate: 1.0,
 
   ignoreErrors: [
